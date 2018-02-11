@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="f31d4018-b529-4f71-bfe9-3d106ba6ea2f">
+    <database-info product="MySQL" version="5.5.44-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.45 ( Revision: 9131eefa398531c7dc98776e8a3fe839e544c5b2 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="jpa_mensajes"/>
+    <table name="Autor" schema="" catalog="jpa_mensajes" type="TABLE">
+      <column name="autor_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="autor_id"/>
+      <exported-key name="FK_4tygk9jphcgesne3mnj2t73kn" table="Mensaje" schema="" catalog="jpa_mensajes" columns="autor_autor_id"/>
+      <index name="UK_b9rqydwsclpsfivfgus4rq227" unique="true" columns="email"/>
+    </table>
+    <table name="Mensaje" schema="" catalog="jpa_mensajes" type="TABLE">
+      <column name="mensaje_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fecha" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="texto" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="version" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="autor_autor_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="mensaje_id"/>
+      <foreign-key name="FK_4tygk9jphcgesne3mnj2t73kn" columns="autor_autor_id" ref-table="Autor" ref-schema="" ref-catalog="jpa_mensajes" ref-columns="autor_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_4tygk9jphcgesne3mnj2t73kn" unique="false" columns="autor_autor_id"/>
+    </table>
+  </data-source>
+</component>
